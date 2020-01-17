@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Upload</title>
+		<title>Hackpack Printer</title>
+
+		<link href="node_modules/prismjs/themes/prism.css" rel="stylesheet"/>
 		<style>
 			html {
 				width:100%;
@@ -140,7 +142,7 @@
 		<section id="sampleWrapper">
 			<article id="exampleSettings">
 				<h3>Sample Input:</h3>
-				<pre>
+				<pre><code class="language-toml">
 # Will be printed at the top of each page
 title = "Hackpack"
 
@@ -192,7 +194,7 @@ columns = 3
 code_font_size = 6
 header_font_size = 10
 index_font_size = 8
-				</pre>
+				</code></pre>
 			</article>
 			<article id="exampleOutput">
 				<h3>Sample output:</h3>
@@ -207,5 +209,7 @@ index_font_size = 8
 			<img src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
 		</section>
 		
+		<script src="node_modules/prismjs/prism.js"></script>
+		<script src="node_modules/prismjs/components/prism-toml.min.js"></script>
 	</body>
 </html>
