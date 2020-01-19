@@ -22,10 +22,6 @@
 				margin-left: auto;
 			}
 
-			pre code {
-				margin: 0;
-				padding: 0;
-			}
 			
 			#sampleWrapper {
 				display: flex;
@@ -54,6 +50,11 @@
 			
 			}
 
+			#default-settings * {
+				margin: 0;
+				padding: 0;
+			}
+			
 			#fileUpload {
 				opacity: 100;
 			}
@@ -131,15 +132,16 @@
 	</head>
 	<body>
 		<section id="formWrapper">
-			<form id="formThing" enctype="multipart/form-data" action="http://localhost:8080/upload" method="post">
+			<form id="formThing" enctype="multipart/form-data" action="http://localhost:80/upload" method="post">
 				<input id="fileUpload" type="file" name="uploadfile"/>
 				<input id="submit" type="submit" value="Submit!"/>
 			</form>
 		</section>
 		<section id="sampleWrapper">
 			<article id="exampleSettings">
-				<h3>Sample Input:</h3>
-				<pre><code class="language-toml">
+				<h3>Sample Settings File:</h3>
+				<p> The program can be run with default settings. If more fine-grained control is desired, than a settings file can be used like the one below</p>
+				<pre id="default-settings"><code class="language-toml">
 # Will be printed at the top of each page
 title = "Hackpack"
 
@@ -197,8 +199,9 @@ index_font_size = 8
 				<h3>Sample output:</h3>
 				<p>Click the image below to open a larger preview!</p>
 				<a href="#bigPreview">
-				<img id="outputImage" src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
+					<img id="outputImage" src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
 				</a>
+				<img id="outputImage" src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
 			</article>
 		</section>
 		<section id="bigPreview">
@@ -207,5 +210,8 @@ index_font_size = 8
 		</section>
 		
 		<script src="js/prism.js"></script>
+		<script>
+		xhttp.open("GET", "hackpack.toml", true);
+		</script>
 	</body>
 </html>
