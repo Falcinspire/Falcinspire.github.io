@@ -7,7 +7,7 @@
 		<style>
 			html {
 				width:100%;
-				height: 100vh;
+				min-height: 100vh;
 			}
 			
 			
@@ -20,6 +20,8 @@
 				max-width: 1400px;
 				margin-right: auto;
 				margin-left: auto;
+				display: flex;
+				flex-direction: column;
 			}
 
 			
@@ -32,7 +34,7 @@
 				flex-direction: column;
 			}
 			
-			#sampleWrapper * {
+			#sampleWrapper *, p {
 				margin-left: auto;
 				margin-right: auto;
 				padding: 10px;
@@ -93,7 +95,7 @@
 				background: #d3d3ff;
 			}
 			
-			#bigPreview {
+			.modal {
 				padding: 5px;
 				margin: 5px;
 				display: none;
@@ -105,11 +107,10 @@
 				max-width: 100%;
 			}
 			
-			#bigPreview:target {
+			.modal:target {
 				display: block;
 			}
-
-			#closeModal {
+			.closeModal {
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -125,6 +126,10 @@
 				margin: 5px;
 			}
 			#exampleOutput p {
+				margin: 0 10px;
+				padding: 0;
+			}
+			#exampleOutput a {
 				margin: 0;
 				padding: 0;
 			}
@@ -132,8 +137,21 @@
 				margin: 10px 20px;
 			}
 			#credit {
-				font-size: 20%;
+				font-size: 5%;
+				transform-origin: left;
+				transform: scale(.65);
 			}
+
+			.fancyCode {
+				transition: .3s linear;
+			}
+
+			.fancyCode:hover {
+				box-shadow: gray 0px 0px 10px;
+			}
+
+
+
 		</style>
 		<meta name="author" content="Daniel Gordon"/>
 	</head>
@@ -148,7 +166,7 @@
 			<article id="exampleSettings">
 				<h3>Sample Settings File:</h3>
 				<p> The program can be run with default settings. If more fine-grained control is desired, than a settings file can be used like the one below</p>
-				<pre id="default-settings"><code class="language-toml"># Will be printed at the top of each page
+				<pre class="fancyCode" id="default-settings"><code class="language-toml"># Will be printed at the top of each page
 title = "Hackpack"
 
 # Style the lexer will use to do syntax highlighting
@@ -199,20 +217,26 @@ columns = 3
 code_font_size = 6
 header_font_size = 10
 index_font_size = 8
-				</code></pre>
+				</code></pre id="fancyCode">
 			</article>
 			<article id="exampleOutput">
 				<h3>Sample output:</h3>
-				<p>Click the image below to open a larger preview!</p>
-				<a href="#bigPreview">
-					<img id="outputImage" src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
+				<p>Click the images below to open a larger preview!</p>
+				<a href="#bodyModal">
+					<img id="outputImage" src="output_body.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
 				</a>
-				<img id="outputImage" src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
+				<a href="#indexModal">
+					<img id="outputImage" src="output_index.png" alt="Image displays a sample index output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
+				</a>
 			</article>
 		</section>
-		<section id="bigPreview">
-			<a id="closeModal" href="#"> X </a>
-			<img src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
+		<section class="modal" id="bodyModal">
+			<a class="closeModal" href="#"> X </a>
+			<img src="output_body.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
+		</section>
+		<section class="modal" id="indexModal">
+			<a class="closeModal" href="#"> X </a>
+			<img src="output_index.png" alt="Image displays a sample index output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
 		</section>
 		<footer>
 			<p id="credit">Page design by <a href="#youThought!">Daniel Gordon</a>. That link isn't real. Don't check his other stuff out. Why'd you even zoom in on this, anyway?</p>
