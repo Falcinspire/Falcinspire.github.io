@@ -128,12 +128,18 @@
 				margin: 0;
 				padding: 0;
 			}
-
+			footer {
+				margin: 10px 20px;
+			}
+			#credit {
+				font-size: 20%;
+			}
 		</style>
+		<meta name="author" content="Daniel Gordon"/>
 	</head>
 	<body>
 		<section id="formWrapper">
-			<form id="formThing" enctype="multipart/form-data" action="http://ec2-18-221-218-255.us-east-2.compute.amazonaws.com/upload" method="post">
+			<form id="formThing" enctype="multipart/form-data" action="http://localhost/upload" method="post">
 				<input id="fileUpload" type="file" name="uploadfile"/>
 				<input id="submit" type="submit" value="Submit!"/>
 			</form>
@@ -208,6 +214,10 @@ index_font_size = 8
 			<a id="closeModal" href="#"> X </a>
 			<img src="output.png" alt="Image displays 3 columns of prettified output that would be created based off the sample settings. However, given that you're reading this alt text, I don't think this visual code display tool will be very useful for you."/>
 		</section>
+		<footer>
+			<p id="credit">Page design by <a href="#youThought!">Daniel Gordon</a>. That link isn't real. Don't check his other stuff out. Why'd you even zoom in on this, anyway?</p>
+		</footer>
+		
 		
 		<script src="js/prism.js"></script>
 	</body>
