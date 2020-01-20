@@ -29,6 +29,7 @@
 				margin: 10px 10px 10px 20px;
 				border: 1px solid black;
 				align-items: top;
+				flex-direction: column;
 			}
 			
 			#sampleWrapper * {
@@ -127,12 +128,12 @@
 				margin: 0;
 				padding: 0;
 			}
-			
+
 		</style>
 	</head>
 	<body>
 		<section id="formWrapper">
-			<form id="formThing" enctype="multipart/form-data" action="http://localhost:80/upload" method="post">
+			<form id="formThing" enctype="multipart/form-data" action="http://ec2-18-221-218-255.us-east-2.compute.amazonaws.com/upload" method="post">
 				<input id="fileUpload" type="file" name="uploadfile"/>
 				<input id="submit" type="submit" value="Submit!"/>
 			</form>
@@ -141,8 +142,7 @@
 			<article id="exampleSettings">
 				<h3>Sample Settings File:</h3>
 				<p> The program can be run with default settings. If more fine-grained control is desired, than a settings file can be used like the one below</p>
-				<pre id="default-settings"><code class="language-toml">
-# Will be printed at the top of each page
+				<pre id="default-settings"><code class="language-toml"># Will be printed at the top of each page
 title = "Hackpack"
 
 # Style the lexer will use to do syntax highlighting
@@ -210,8 +210,5 @@ index_font_size = 8
 		</section>
 		
 		<script src="js/prism.js"></script>
-		<script>
-		xhttp.open("GET", "hackpack.toml", true);
-		</script>
 	</body>
 </html>
